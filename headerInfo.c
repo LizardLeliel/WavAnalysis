@@ -10,7 +10,7 @@
 
 
 
-//#define SEE_BYTE
+#define SEE_BYTE
 
 uint32_t describeBytesByLittleEndian(
   const size_t bytes, const char* description,

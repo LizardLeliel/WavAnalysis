@@ -55,8 +55,8 @@ int main(int argc, char** argv) {
     );
 
     describeBytesByLittleEndian(4,
-        "Subchunk size in bytes:",
-        "(Should be 16; if not, extra parameters are going to be overlooked)",
+        "Current subchunk size in bytes:",
+        "(Should be 16)",
         wavFile
     );
 
@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
 
     describeBytesByString(4,
         "Data subchunk first four bytes",
-        "(should be DATA)",
+        "(should be data)",
         wavFile
     );
 
