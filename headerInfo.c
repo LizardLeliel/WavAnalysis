@@ -3,20 +3,15 @@
 #include <stdlib.h>
 #include "headerInfo.h"
 
-#define PRINT_TWO_BYTES(buf)  printf("Bytes: %02x%02x\n\n",\
-                                    buf[0], buf[1]);
-#define PRINT_FOUR_BYTES(buf) printf("Bytes: %02x%02x %02x%02x\n\n",\
-                                    buf[0], buf[1], buf[2], buf[3]);
-
-
-
-#define SEE_BYTE
+/* wavHeader definition - allocates memory */
+struct wavHeaderStruct wavHeader;
 
 uint32_t describeBytesByLittleEndian(
   const size_t bytes, const char* description,
   const char* note, FILE* wave
 )
 {
+
     byte_t buffer[bytes];
 
     scanBytes(buffer, bytes, wave);
@@ -73,7 +68,6 @@ uint32_t fromLittleEndian(const size_t bytes, const byte_t* buffer) {
 
     return returnVal;
 }
-
 
 
 
