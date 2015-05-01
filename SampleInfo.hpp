@@ -1,4 +1,4 @@
-#ifndef SAMPLE_PLAY_HEADER
+#ifndef SAMPLE_INFO_HEADER
 #include <stdio.h>
 #include <inttypes.h>
 
@@ -11,5 +11,5 @@ void printOneSampleBytes();
 void fprintSecondOfSamples(FILE* output);
 
 
-#define SAMPLE_PLAY_HEADER
+#define SAMPLE_INFO_HEADER
 #endif
