@@ -1,12 +1,14 @@
 
 
 #include "HeaderInfo.hpp"
+#include "SampleInfo.hpp"
 //#include "Descriptions.hpp"
 //#include "SamplePlay.hpp"
 
 int main(int argc, char** argv) 
 {
-    WavHeader header("SquareWav.wav");
+    WavReader header("SquareWav.wav");
     header.printHeaderContents();
+    header.printUntil(1);
     return 0;
 }

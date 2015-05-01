@@ -1,15 +1,33 @@
-#include <stdio.h>
+
 #include <inttypes.h>
+#include <iostream>
 
-#include "headerInfo.h" /* bytes_t, scan bytes */
-#include "samplePlay.h"
+#include "SampleInfo.hpp"
+#include "HeaderInfo.hpp"
 
-void printOneSampleBytes() {
+using namespace std;
+
+WavReader::WavReader(const string& filename)
+    : WavHeader(filename)
+{
+
+}
+
+void WavReader::printUntil(unsigned int ending)
+{
+    cout << "Works" << endl;
+}
+
+
+
+/*
+void printOneSampleBytes() 
+{
     uint16_t bits = wavHeader.bitsPerSample;
-    /* Curiously enough, if the wav file is in 8 bits per sample, then
-     * the bytes are stored as usigned chars. If its 16 bits, then its a
-     * intregral type (2's complement), with the range equilivant of a short
-     */
+    //* Curiously enough, if the wav file is in 8 bits per sample, then
+     //* the bytes are stored as usigned chars. If its 16 bits, then its a
+     //* intregral type (2's complement), with the range equilivant of a short
+     //*
 
     if (bits == 8) {
         byte_t buffer[bits/8];
@@ -25,42 +43,28 @@ void printOneSampleBytes() {
         printf("One sample: %d (%02x%02x)\n", sample, buffer[0], buffer[1]);
     }
 
-{ /* the emptey scope ({ }) allows my ide to visually close it */
-    /* Macros don't like expanding in front of a label, apparently */
-    //switch (bits) {
-    /*case 8:
-
-        byte_t buffer[bits/8]; /* Should be 1 *//*
-        scanBytes(buffer, bits/8, wavHeader.wavFile);
-
-        printf("One sample: %u (%02x)\n", buffer[0] buffer[0]);
-        break; */
-    /*case 16:
-        byte_t buffer[bits/8]; /* should be 2 *//*
-        scanBytes(buffer, bits/8, wavHeader.wavFile);
-        int16_t sample = (int16_t)fromLittleEndian(bits/8, buffer);
-
-        printf("One sample: %d (%02x%02x)\n", sample, buffer);
-    } */
-}
 
 }
 
-void fprintSecondOfSamples(FILE* output) {
+void fprintSecondOfSamples(FILE* output) 
+{
     uint16_t bits = wavHeader.bitsPerSample;
     uint32_t sampleRate = wavHeader.sampleRate;
-    /* TODO: update to print four samples a line */
-    if (bits == 8) {
+    //* TODO: update to print four samples a line 
+    if (bits == 8) 
+    {
         byte_t buffer[bits/8];
         int n;
 
-        for (n=0; n < sampleRate; ++n) {
+        for (n=0; n < sampleRate; ++n) 
+        {
             scanBytes(buffer, bits/8, wavHeader.wavFile);
             fprintf(output, "%05d: %03u, (%02x)\n", n, buffer[0], buffer[0]);
         }
     }
-    else if (bits == 16) {
-    /* I'm trying to output four samples at a time here */
+    else if (bits == 16) 
+    {
+    //* I'm trying to output four samples at a time here *
         byte_t buffer [bits/8*4];
         int n, m;
 
@@ -68,11 +72,13 @@ void fprintSecondOfSamples(FILE* output) {
           "Format: (sample #: value,) four times followed by (bytes)\n"
         );
 
-        for (n=0; n < sampleRate; n+=4) {
+        for (n=0; n < sampleRate; n+=4) 
+        {
             scanBytes(buffer, bits/8*4, wavHeader.wavFile);
             int16_t sample[4];
 
-            for (m=0; m < 4; ++m) {
+            for (m=0; m < 4; ++m) 
+            {
                 sample[m] = (int16_t)fromLittleEndian(bits/8, buffer+m*2);
             }
 
@@ -94,5 +100,5 @@ void fprintSecondOfSamples(FILE* output) {
             );
         }
     }
-}
+}*/
 

@@ -45,7 +45,7 @@ unsigned int WavHeader::scanLittleEndian(const size_t ammount)
 {
     unsigned int returnVal = 0;
     char buffer[ammount];
-//infile.read (buffer,size);
+
     wavFile.read(buffer, ammount);
 
     // Actually do the conversion

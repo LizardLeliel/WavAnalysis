@@ -8,10 +8,11 @@ typedef unsigned char byte;
 
 class WavHeader
 {
-  private:
+  protected:
     std::fstream wavFile;
     
     // Header data
+    // I should turn this into a struct >_<
     char     riffName[5];
     uint32_t fullChunkSize;
     char     waveName[5];
