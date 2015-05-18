@@ -24,7 +24,7 @@ WavHeader::WavHeader(const string& filename)
     scanCharacters(waveName, 4);
 
     scanCharacters(fmtName, 4);
-    fmtSubSize    = (uint32_t) scanLittleEndian(4);
+    fmtSubSize    = (uint32_t) scanLittleEndian(4)
     audioFormat   = (uint16_t) scanLittleEndian(2);
     channels      = (uint16_t) scanLittleEndian(2);
     sampleRate    = (uint32_t) scanLittleEndian(4);
@@ -180,17 +180,5 @@ uint32_t fromLittleEndian(const size_t bytes, const byte_t* buffer) {
     return returnVal;
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
