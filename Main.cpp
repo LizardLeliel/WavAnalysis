@@ -1,7 +1,6 @@
+#include "WavReader.hpp"
 
 
-#include "HeaderInfo.hpp"
-#include "SampleInfo.hpp"
 //#include "Descriptions.hpp"
 //#include "SamplePlay.hpp"
 

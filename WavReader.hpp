@@ -1,4 +1,5 @@
-#ifndef HEADER_INFO_HEADER
+#ifndef WAV_READER
+
 //#include <inttypes.h>
 //#include <stdio.h>
 #include <fstream>
@@ -33,14 +34,20 @@ class WavHeader
     unsigned int scanLittleEndian(const size_t ammount);
     void scanCharacters(char* buffer, const size_t ammount);
 
+    unsigned int secondsToSamples(const double);
 
   public:
 
+    WavHeader(const std::string& filename, std::ostream& outStream);
     WavHeader(const std::string& filename);
     ~WavHeader();
 
-    void printHeaderContents(std::ostream& outStream);
+    setOutStream(std::ostream& outStream);
+
     void printHeaderContents();
+    void printBodyContents();
+    void printUpTo(const unsigned int ammountOfSamples);
+    void printUpTo(const double seconds);
 
     bool valid();
 };
@@ -97,5 +104,5 @@ void describeBytesByString(
 uint32_t fromLittleEndian(const size_t bytes, const byte_t* buffer);
 */
 
-#define HEADER_INFO_HEADER
+#define WAV_READER
 #endif
